@@ -1,0 +1,16 @@
+func foo(c) { /* formal parameter c shadows the c defined in main */
+print(c); /* prints 10 */
+c = 30; /* alters the formal parameter, not the c from main */
+}
+func main() {
+c = 10;
+foo(c);
+print(c); /* prints 10 */
+}
+
+/*
+*OUT*
+10
+10
+*OUT*
+*/

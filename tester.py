@@ -151,6 +151,16 @@ def generate_test_suite_v2():
         fails,
     )
 
+def generate_test_suite_v3():
+    """wrapper for generate_test_suite for v3"""
+    tests = __get_file_names(getcwd() + "/v3/tests/")
+    fails = __get_file_names(getcwd() + "/v3/fails/")
+    return __generate_test_suite(
+        3,
+        tests,
+        fails,
+    )
+
 async def main():
     """main entrypoint: argparses, delegates to test scaffold, suite generator, gradescope output"""
     if not sys.argv:
@@ -166,6 +176,8 @@ async def main():
             tests = generate_test_suite_v1()
         case "2":
             tests = generate_test_suite_v2()
+        case "3":
+            tests = generate_test_suite_v3()
         case _:
             raise ValueError("Unsupported version; expect one of {1, 2}")
 

@@ -1,0 +1,21 @@
+func make_recursive_sum() {
+  sum_lambda = lambda(self, n) {
+    if (n == 0) {
+      return 0;
+    } else {
+      return n + self(self, n - 1);
+    }
+  };
+  return sum_lambda;
+}
+
+func main() {
+  recursive_sum = make_recursive_sum();
+  print(recursive_sum(recursive_sum, 5));  
+}
+
+/*
+*OUT*
+15
+*OUT*
+*/

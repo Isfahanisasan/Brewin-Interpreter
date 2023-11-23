@@ -1,0 +1,24 @@
+func outer() {
+  var_outer = "Outer";
+
+  return lambda(var_shadowed) {
+    var_middle = "Middle";
+    return lambda(var_shadowed) {  
+      return var_outer + "-" + var_middle + "-" + var_shadowed;
+    };
+  };
+}
+
+func main() {
+  first_lambda = outer();
+  second_lambda = first_lambda("First_Shadow");
+  result = second_lambda("Second_Shadow");
+  print(result); 
+}
+
+
+/*
+*OUT*
+Outer-Middle-Second_Shadow
+*OUT*
+*/

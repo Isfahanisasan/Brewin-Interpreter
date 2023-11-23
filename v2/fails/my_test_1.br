@@ -1,0 +1,16 @@
+func main() {
+a = 5; /* variable a's scope is the function's block */
+while (a == 5) {
+b = 10; /* variable b's scope is the while block */
+a = 6;
+} /* variable b goes out of scope */
+print(a); /* works fine since a is still in scope, prints 6 */
+print(b); /* generates an error of ErrorType.NAME_ERROR */
+} /* variable a goes out of scope */
+
+
+/*
+*OUT*
+ErrorType.NAME_ERROR
+*OUT*
+*/

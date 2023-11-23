@@ -1,0 +1,23 @@
+func make_conditional_lambda(choice) {
+  if (choice) {
+    var1 = 10;
+    return lambda() { return var1; };
+  } else {
+    var2 = 20;
+    return lambda() { return var2; };
+  }
+}
+
+func main() {
+  true_lambda = make_conditional_lambda(true);
+  false_lambda = make_conditional_lambda(false);
+  print(true_lambda()); 
+  print(false_lambda()); 
+}
+
+/*
+*OUT*
+10
+20
+*OUT*
+*/

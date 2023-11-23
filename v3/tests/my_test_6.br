@@ -1,0 +1,20 @@
+func outer() {
+  captured_var = "captured";
+  inner_lambda = lambda() { 
+    captured_var = "shadowed";
+    return captured_var; 
+  };
+  return inner_lambda;
+}
+
+func main() {
+  lambda_var = outer();
+  result = lambda_var(); 
+  print(result);
+}
+
+/*
+*OUT*
+shadowed
+*OUT*
+*/

@@ -1,0 +1,25 @@
+func foo() {
+/* a, b and c are in scope here! */
+print("foo: ", a, " ", b, " ", c); /* prints foo: 10 20 30 */
+b = b + 1; /* b is set to 21 */
+}
+func bar() {
+/* a, and b are in scope here! */
+print("bar: ", a, " ", b); /* prints bar: 10 20 */
+c = 30;
+foo();
+}
+func main() {
+a = 10;
+b = 20;
+bar();
+print("main: ", a, " ", b); /* prints bar: 10 21 */
+}
+
+/*
+*OUT*
+bar: 10 20
+foo: 10 20 30
+main: 10 21
+*OUT*
+*/

@@ -1,0 +1,23 @@
+func capture_in_condition() {
+  threshold = 10;
+  return lambda(x) {
+    if (x > threshold) {
+      return "Above";
+    } else {
+      return "Below";
+    }
+  };
+}
+
+func main() {
+  test_lambda = capture_in_condition();
+  print(test_lambda(5));   
+  print(test_lambda(15));
+}
+
+/*
+*OUT*
+Below
+Above
+*OUT*
+*/

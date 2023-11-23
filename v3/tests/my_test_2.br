@@ -1,0 +1,13 @@
+func main() {
+    a = 2;
+    lam1 = lambda(ref x) { x = x + 3; print(x); };
+    lam1(a);
+    print(a);
+}
+
+/*
+*OUT*
+5
+5
+*OUT*
+*/

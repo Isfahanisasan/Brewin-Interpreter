@@ -1,0 +1,16 @@
+func bar(a) {
+print(a);
+}
+func main() {
+bar(5);
+bar("hi");
+bar(false || true);
+}
+
+/*
+*OUT*
+5
+hi
+true
+*OUT*
+*/

@@ -1,0 +1,24 @@
+func conditional_lambda_creator(flag) {
+  if (flag) {
+    captured_var = 10;
+    return lambda() { return captured_var * 2; };
+  } else {
+    captured_var = 5;
+    return lambda() { return captured_var + 2; };
+  }
+}
+
+func main() {
+  true_lambda = conditional_lambda_creator(true);
+  false_lambda = conditional_lambda_creator(false);
+  print(true_lambda()); 
+  print(false_lambda()); 
+}
+
+
+/*
+*OUT*
+20
+7
+*OUT*
+*/

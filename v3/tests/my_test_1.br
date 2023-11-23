@@ -1,0 +1,26 @@
+func foo (){
+    lambd = lambda(){
+        x = 5; 
+        bar(x);
+        print(x);
+    };
+    lambd();
+}
+func bar(ref x){
+  x = x+1;
+  print(x);
+
+}
+
+func main() {
+  foo();
+}
+
+
+
+/*
+*OUT*
+6
+6
+*OUT*
+*/

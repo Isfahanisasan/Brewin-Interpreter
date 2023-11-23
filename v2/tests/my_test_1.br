@@ -1,0 +1,14 @@
+func foo() {
+print("hello world!");
+}
+func main() {
+foo();
+}
+
+
+
+/*
+*OUT*
+hello world!
+*OUT*
+*/

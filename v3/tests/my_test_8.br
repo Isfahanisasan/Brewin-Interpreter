@@ -1,0 +1,19 @@
+func intermediate() {
+  intermediate_var = 100;
+  lambda_func = lambda(intermediate_var) {
+    return intermediate_var * 2;
+  };
+  return lambda_func;
+}
+
+func main() {
+  shadow_test = intermediate();
+  result = shadow_test(50);  
+    print(result);          
+}
+
+/*
+*OUT*
+100
+*OUT*
+*/

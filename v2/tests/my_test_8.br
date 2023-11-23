@@ -1,0 +1,14 @@
+func main() {
+a = 10; /* variable a's scope is the main() { block } */
+if (true) {
+a = "blah"; /* this changes a from the top-level block */
+}
+print(a); /* prints: blah */
+}
+
+
+/*
+*OUT*
+blah
+*OUT*
+*/

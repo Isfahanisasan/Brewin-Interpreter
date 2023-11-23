@@ -1,0 +1,21 @@
+func outer_scope() {
+  outer_var = "Outer";
+  return lambda(inner_var) {
+    return lambda() {
+      return outer_var + " and " + inner_var; 
+    };
+  };
+}
+
+func main() {
+  first_lambda = outer_scope();
+  second_lambda = first_lambda("Inner");
+  result = second_lambda();
+  print(result);  
+}
+
+/*
+*OUT*
+Outer and Inner
+*OUT*
+*/

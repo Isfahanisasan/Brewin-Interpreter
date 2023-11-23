@@ -1,0 +1,17 @@
+func make_lambda() {
+  var1 = 10;
+  var2 = 20;
+  return lambda() { return var1 + var2; };
+}
+
+func main() {
+  var1 = 100;  
+  my_lambda = make_lambda();
+  print(my_lambda());  
+}
+
+/*
+*OUT*
+30
+*OUT*
+*/

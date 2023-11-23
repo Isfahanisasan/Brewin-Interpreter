@@ -1,0 +1,20 @@
+func make_fibonacci_lambda() {
+  return lambda(self, n) {
+    if (n <= 1) {
+      return n;
+    } else {
+      return self(self, n - 1) + self(self, n - 2);
+    }
+  };
+}
+
+func main() {
+  fibonacci = make_fibonacci_lambda();
+  print(fibonacci(fibonacci, 6));  
+}
+
+/*
+*OUT*
+8
+*OUT*
+*/

@@ -1,0 +1,19 @@
+func outer() {
+  x = 20;
+  inner_lambda = lambda(x) { return x; };
+  return inner_lambda;
+}
+
+func main() {
+  lambda_var = outer();
+  result = lambda_var(30);
+  print(result);
+}
+
+
+
+/*
+*OUT*
+30
+*OUT*
+*/

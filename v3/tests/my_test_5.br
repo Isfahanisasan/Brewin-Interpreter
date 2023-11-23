@@ -1,0 +1,21 @@
+func outer() {
+  var1 = 5;
+  inner_lambda = lambda(var2) { 
+    return lambda(var3) { 
+      return var1 + var2 + var3; 
+    }; 
+  };
+  return inner_lambda(10);
+}
+
+func main() {
+  func_var = outer();
+  result = func_var(15);  
+  print(result);
+}
+
+/*
+*OUT*
+30
+*OUT*
+*/

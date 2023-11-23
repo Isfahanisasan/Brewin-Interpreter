@@ -1,0 +1,27 @@
+func deep_nest() {
+  level1 = 1;
+  return lambda(level2) {
+    level1 = 2;  
+    return lambda(level3) {
+      level2 = 3;  
+      return lambda() {
+        return level1 + level2 + level3;  
+      };
+    };
+  };
+}
+
+func main() {
+  first = deep_nest();
+  second = first(0); 
+  third = second(100);
+  result = third();
+  print(result);  
+}
+
+
+/*
+*OUT*
+105
+*OUT*
+*/

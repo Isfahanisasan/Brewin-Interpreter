@@ -1,0 +1,13 @@
+func foo() {
+c = 5;
+}
+func main() {
+foo();
+print(c); /* generates an error of ErrorType.NAME_ERROR */
+}
+
+/*
+*OUT*
+ErrorType.NAME_ERROR
+*OUT*
+*/

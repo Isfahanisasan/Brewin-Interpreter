@@ -3,8 +3,6 @@ from brewparse import *
 from type_valuev1 import *
 from env_v1 import *
 
-
-
 class Interpreter(InterpreterBase) :
 
     NIL_VALUE = create_value(InterpreterBase.NIL_DEF)
@@ -25,7 +23,7 @@ class Interpreter(InterpreterBase) :
             main_function_ast = self.get_func_by_name('main')
         except NameError: 
             super().error(ErrorType.NAME_ERROR, "No main() function was found")
-        # self.variable_name_to_value ={}
+        self.variable_name_to_value ={}
         self.env = EnvironmentManager()
         self.run_statements(main_function_ast.get('statements'))
 
@@ -36,13 +34,12 @@ class Interpreter(InterpreterBase) :
 
     def get_func_by_name(self, func_name):
         if func_name not in self.func_name_to_ast:
-            super().error(ErrorType.NAME_ERROR, f'Function {func_name} not found')
+            super.error(ErrorType.NAME_ERROR, f'Function {func_name} not found')
         return self.func_name_to_ast[func_name] #returns func ast
 
 
     def run_statements(self, statements): 
         for statement in statements: 
-            print(statement)
             if self.trace_output:
                 print(statement)
             if statement.elem_type == InterpreterBase.FCALL_DEF:
@@ -61,18 +58,7 @@ class Interpreter(InterpreterBase) :
             return self.call_inputi(call_node)  
         else: 
             # add support for other functions
-            self.user_func(call_node)
             super().error(ErrorType.NAME_ERROR)
-
-    def user_func(self, call_node):
-        print(call_node)
-        statements = call_node.get('statements')
-        args = call_node.get('args')
-
-        print (statements, 1)
-        print (args, 1)
-
-        pass
 
     def call_inputi(self, call_ast):
         args = call_ast.get('args')
@@ -91,14 +77,13 @@ class Interpreter(InterpreterBase) :
         output = ""
         for arg in call_ast.get('args'):
             result = self.run_expression(arg)
-            output = output + get_printable(result)
+            output += get_printable(result)
         super().output(output)
         return Interpreter.NIL_VALUE
 
     def assign(self, assign_ast):
         var_name = assign_ast.get('name')
         value_obj = self.run_expression(assign_ast.get('expression'))
-        print(value_obj.value(), value_obj.type(), 111)
         self.env.set(var_name, value_obj)
         
 
@@ -109,8 +94,6 @@ class Interpreter(InterpreterBase) :
             return Value(Type.INT, expression.get('val'))
         if expression.elem_type == InterpreterBase.STRING_DEF:
             return Value(Type.STRING, expression.get('val'))
-        if expression.elem_type == InterpreterBase.BOOL_DEF:
-            return Value(Type.BOOL, expression.get('val'))
         if expression.elem_type == InterpreterBase.VAR_DEF:
             var_name = expression.get('name')
             val = self.env.get(var_name)
@@ -119,22 +102,8 @@ class Interpreter(InterpreterBase) :
             return val 
         if expression.elem_type == InterpreterBase.FCALL_DEF:
             return self.call_func(expression)
-        if expression.elem_type in Interpreter.BIN_OPS:
+        if expression.elem_type == Interpreter.BIN_OPS:
             return self.eval_op(expression)
-        if expression.elem_type == InterpreterBase.NOT_DEF:
-            # print(expression, 22)
-            return self.bool_negation(expression)
-    
-    def bool_negation(self, expression):
-        right_hand_side = self.run_expression(expression.get('op1'))
-        # print(right_hand_side.type(), 'hello')
-        if(right_hand_side.type() != Type.BOOL):
-            # print(expression)
-            super().error(ErrorType.TYPE_ERROR, 'logical not used with non bool')
-        # print(expression, 11)
-        # print(right_hand_side)
-        return Value(Type.BOOL, not right_hand_side.value())
-        
         
     def eval_op(self, arith_ast):
         left_value_obj = self.run_expression(arith_ast.get('op1'))
@@ -248,19 +217,15 @@ class Interpreter(InterpreterBase) :
                  
     
 
-program_source ="""
-func foo(){
-    print("hi");
-}
+# program_source = """
+# func main(){
+#     print("hi");
 
-func main(){
-    foo();
+# }
+# """
 
-}
-"""
-
-Int_instance = Interpreter() 
-Int_instance.run(program_source)
+# Int_instance = Interpreter() 
+# Int_instance.run(program_source)
 
 
 # ast = parse_program(program_source)

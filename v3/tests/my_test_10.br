@@ -1,0 +1,22 @@
+func counter() {
+  count = 0;
+  return lambda(increment) {
+    count = count + increment;
+    return count;
+  };
+}
+
+func main() {
+  my_counter = counter();
+  print(my_counter(5));  
+  print(my_counter(3));  
+  print(my_counter(2));  
+}
+
+/*
+*OUT*
+5
+8
+10
+*OUT*
+*/
