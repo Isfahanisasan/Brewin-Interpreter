@@ -1,4 +1,5 @@
 func main() {
+<<<<<<< HEAD
   print(1 < 2);
   print(1 < 1);
   print(1 <= 1);
@@ -11,6 +12,25 @@ func main() {
   print(1 == 2);
   print(1 != 2);
   print(10033 > -1323);
+=======
+  print(5 == 5);
+  print(6 == 5);
+
+  print(6 < 7);
+  print(6 < 6);
+  
+  print(9 > 7);
+  print(6 > 6);
+
+  print(6 >= 6);
+  print(5 >= 6);
+  
+  print(6 <= 6);
+  print(7 <= 6);
+
+  print(6 != 5);
+  print(6 != 6);
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72
 }
 
 /*
@@ -19,6 +39,7 @@ true
 false
 true
 false
+<<<<<<< HEAD
 false
 false
 true
@@ -27,5 +48,15 @@ false
 false
 true
 true
+=======
+true
+false
+true
+false
+true
+false
+true
+false
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72
 *OUT*
 */

@@ -1,15 +1,31 @@
 func main() {
+<<<<<<< HEAD
     i = 0;
     while (i < 3) {
         print(i);
         i = i + 1;
     }
+=======
+ i = 3;
+ while (i > 0) {
+  print(i);
+  i = i - 1;
+ }
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72
 }
 
 /*
 *OUT*
+<<<<<<< HEAD
 0
 1
 2
 *OUT*
 */
+=======
+3
+2
+1
+*OUT*
+*/
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72

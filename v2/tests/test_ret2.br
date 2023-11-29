@@ -1,4 +1,5 @@
 func main() {
+<<<<<<< HEAD
   print(foo(true) != nil);
   print(foo(false) == nil);
 }
@@ -8,13 +9,27 @@ func foo(x) {
   if (x) {
     return true;
   }
+=======
+  a = foo();
+  print(a);
+}
+
+func foo() {
+ return 5;
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72
 }
 
 /*
 *OUT*
+<<<<<<< HEAD
 hi
 true
 hi
 true
 *OUT*
 */
+=======
+5
+*OUT*
+*/
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72

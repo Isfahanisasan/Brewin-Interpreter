@@ -1,15 +1,28 @@
 func main() {
+<<<<<<< HEAD
   print("hey" == "hey");
   print("hey" != "hey");
   print("heyy" == "hey");
   print("heyy" != "hey");
+=======
+  print("abc" == "abc");
+  print("abc" == "def");
+
+  print("abc" != "def");
+  print("abc" != "abc");
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72
 }
 
 /*
 *OUT*
 true
 false
+<<<<<<< HEAD
 false
 true
+=======
+true
+false
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72
 *OUT*
 */

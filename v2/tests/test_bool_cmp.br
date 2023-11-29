@@ -1,8 +1,15 @@
 func main() {
   print(true == true);
+<<<<<<< HEAD
   print(false == true);
   print(false != true);
   print(false != false);
+=======
+  print(true == false);
+
+  print(true != false);
+  print(true != true);
+>>>>>>> d46a99c10e5855b830b98d1a494b71c28c6caf72
 }
 
 /*
